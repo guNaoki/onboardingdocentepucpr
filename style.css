@@ -809,3 +809,47 @@ footer {
     .email-form { flex-direction: column; }
     .btn-subscribe { width: 100%; }
 }
+
+/* --- New Title Hover Effects --- */
+.hero h1 {
+    transition: all 0.4s ease;
+    cursor: default;
+}
+.hero h1:hover {
+    text-shadow: 0 0 20px rgba(255,255,255,0.4);
+    transform: perspective(500px) translateZ(10px);
+}
+
+.section-title h2 {
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+.section-title h2:hover {
+    color: var(--primary-red);
+    transform: translateX(10px);
+}
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-red);
+    transition: width 0.3s ease;
+}
+.section-title h2:hover::after {
+    width: 100%;
+}
+
+.footer-col h4, .footer-brand h3 {
+    transition: all 0.3s ease;
+    cursor: default;
+}
+.footer-col h4:hover, .footer-brand h3:hover {
+    color: white;
+    letter-spacing: 1px;
+    transform: scale(1.05);
+}
