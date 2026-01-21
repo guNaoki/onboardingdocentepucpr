@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FacultyStart - Onboarding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="images/pucprlogo.png" alt="" class="logopuc">
+                Onboarding Docente
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" style="color:var(--text-dark)">Boas-vindas</a></li>
+                    <li><a href="#journey">Guias</a></li>
+                    <li><a href="#documents">Documentos</a></li>
+                    <li><a href="#news">Notícias</a></li>
+                    <li><a href="#support">Suporte</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <i class="fa-regular fa-bell" style="color: #666; cursor: pointer;"></i>
+                <div class="avatar">
+                    <img src="images/Avatar devfest.png" alt="Foto do usuário">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <span class="badge"><i class="fa-solid fa-leaf"></i> Turma de 2026</span>
+                    <h1>Bem-vindo<br>à Equipe.</h1>
+                    <p>Estamos entusiasmados por tê-lo em nossa comunidade acadêmica. Preparamos este espaço para ajudá-lo a se instalar, conectar-se com colegas e encontrar tudo o que você precisa para um semestre de sucesso.</p>
+                </div>
+
+                <div class="video-card">
+                    <div class="play-btn">
+                        <i class="fa-solid fa-play" style="color: white; margin-left: 3px;"></i>
+                    </div>
+                    <h3>Comece por aqui</h3>
+                    <p style="color: #ddd; font-size: 0.8rem; margin: 0;">intro de 2 min</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guias Rápidos (Carousel) -->
+        <section class="container journey" id="journey">
+            <div class="section-title">
+                <h2>Guias Rápidos</h2>
+                <p>Tutoriais essenciais para iniciar suas atividades</p>
+            </div>
+
+            <div class="carousel-wrapper">
+                <button class="carousel-arrow left" onclick="scrollCarousel(-1)">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                
+                <div class="carousel-track" id="guideTrack">
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <div class="guide-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+                        <h3>Criação do Plano de Ensino</h3>
+                        <p>Passo a passo para estruturar e submeter seu plano no sistema.</p>
+                        <button class="card-btn">Acessar Guia</button>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <div class="guide-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h3>Dominando o Canvas LMS</h3>
+                        <p>Configure sua sala de aula virtual e publique materiais.</p>
+                        <button class="card-btn">Acessar Guia</button>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card">
+                        <div class="guide-icon"><i class="fa-solid fa-file-pen"></i></div>
+                        <h3>Aplicação de Provas</h3>
+                        <p>Regras, agendamento e ferramentas para avaliação segura.</p>
+                        <button class="card-btn">Acessar Guia</button>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card">
+                        <div class="guide-icon"><i class="fa-solid fa-table-list"></i></div>
+                        <h3>Portal do Professor</h3>
+                        <p>Como lançar frequências, notas e gerenciar diários.</p>
+                        <button class="card-btn">Acessar Guia</button>
+                    </div>
+
+                    <!-- Card 5 (Extra for carousel effect) -->
+                    <div class="card">
+                        <div class="guide-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+                        <h3>Engajamento em Sala</h3>
+                        <p>Técnicas e ferramentas para aumentar a participação.</p>
+                        <button class="card-btn">Acessar Guia</button>
+                    </div>
+                </div>
+
+                <button class="carousel-arrow right" onclick="scrollCarousel(1)">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="container documents" id="documents">
+            <div class="section-title">
+                <h2>Documentos</h2>
+                <p>Acesse arquivos importantes organizados por pastas</p>
+            </div>
+
+            <div class="documents-grid">
+                <div class="folder-card">
+                    <div class="folder-icon"><i class="fa-solid fa-folder"></i></div>
+                    <h3>Contratos & RH</h3>
+                    <p>4 arquivos</p>
+                </div>
+                <div class="folder-card">
+                    <div class="folder-icon"><i class="fa-solid fa-folder"></i></div>
+                    <h3>Plano de Ensino</h3>
+                    <p>2 arquivos</p>
+                </div>
+                <div class="folder-card">
+                    <div class="folder-icon"><i class="fa-solid fa-folder"></i></div>
+                    <h3>Políticas do Campus</h3>
+                    <p>8 arquivos</p>
+                </div>
+                <div class="folder-card">
+                    <div class="folder-icon"><i class="fa-solid fa-folder"></i></div>
+                    <h3>Modelos de Prova</h3>
+                    <p>5 arquivos</p>
+                </div>
+                 <div class="folder-card">
+                    <div class="folder-icon"><i class="fa-solid fa-folder"></i></div>
+                    <h3>Guias de Inclusão</h3>
+                    <p>3 arquivos</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-mosaic" id="news">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Institucional</h2>
+                    <p>Fique por dentro dos nossos valores e novidades</p>
+                </div>
+                <div class="mosaic-grid">
+                    <div class="mosaic-item large">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800" alt="Inovação">
+                        <div class="mosaic-overlay">
+                            <h3>Inovação no Ensino</h3>
+                            <p>Novas metodologias ativas implementadas em todos os cursos de graduação.</p>
+                        </div>
+                    </div>
+                    <div class="mosaic-item">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800" alt="Responsabilidade">
+                        <div class="mosaic-overlay">
+                            <h3>Responsabilidade Social</h3>
+                            <p>Projetos comunitários em alta.</p>
+                        </div>
+                    </div>
+                    <div class="mosaic-item">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800" alt="Valores">
+                        <div class="mosaic-overlay">
+                            <h3>Nossos Valores</h3>
+                            <p>Ética e excelência.</p>
+                        </div>
+                    </div>
+                    <div class="mosaic-item medium">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b955?w=800" alt="Campus">
+                        <div class="mosaic-overlay">
+                            <h3>Vida no Campus</h3>
+                            <p>Conheça os espaços de convivência e lazer disponíveis para docentes e alunos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="support" id="support">
+            <div class="container">
+                <div class="heart-icon-wrapper">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h2>Você não está sozinho.</h2>
+                <p>Ensinar pode ser exigente, e adaptar-se a um novo ambiente leva tempo. Selecione o canal mais adequado para sua necessidade:</p>
+                
+                <div class="support-actions">
+                    <a href="#" class="btn-support">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <span>Falar com<br>RH / Supervisor</span>
+                    </a>
+                    <a href="#" class="btn-support">
+                        <i class="fa-solid fa-hands-holding-circle"></i>
+                        <span>Falar com<br>PUC Acolhe</span>
+                    </a>
+                    <a href="#" class="btn-support">
+                        <i class="fa-solid fa-headset"></i>
+                        <span>Equipe<br>Onboarding</span>
+                    </a>
+                </div>
+                <p style="font-size: 0.7rem; margin-top: 30px; color: #9ca3af;">*Todas as conversas são confidenciais.</p>
+            </div>
+        </section>
+
+        <!-- Newsletter Section (After Support) -->
+        <section class="container newsletter-section">
+            <div class="newsletter-box">
+                <h2>Tenha os Guias Sempre à Mão</h2>
+                <p>Inscreva-se para receber todos os tutoriais rápidos e atualizações diretamente no seu e-mail, para consultar quando precisar.</p>
+                
+                <form class="email-form" onsubmit="event.preventDefault(); alert('Inscrito com sucesso!');">
+                    <input type="email" class="email-input" placeholder="Seu e-mail institucional" required>
+                    <button type="submit" class="btn-subscribe">Receber Material</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><i class="fa-solid fa-graduation-cap"></i> FacultyStart</h3>
+                    <p>Facilitando a jornada docente e promovendo a excelência acadêmica desde o primeiro dia.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Institucional</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Sobre a Universidade</a></li>
+                        <li><a href="#">Carreiras</a></li>
+                        <li><a href="#">Políticas de Privacidade</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Links Úteis</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Canvas LMS</a></li>
+                        <li><a href="#">WEBprofessor</a></li>
+                        <li><a href="#">Biblioteca Digital</a></li>
+                        <li><a href="#">Calendário Acadêmico</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Conecte-se</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 FacultyStart - Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollCarousel(direction) {
+            const track = document.getElementById('guideTrack');
+            const cardWidth = 300; // card width + gap approx
+            const scrollAmount = direction * cardWidth;
+            track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
