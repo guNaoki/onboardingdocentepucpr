@@ -853,3 +853,62 @@ footer {
     letter-spacing: 1px;
     transform: scale(1.05);
 }
+
+/* --- Enhanced Support Section Interactivity --- */
+.support {
+    transition: background-color 0.5s ease;
+}
+
+/* Background shifts when hovering the section */
+.support:hover {
+    background-color: #fffafa; 
+}
+
+/* Heart accelerates when hovering any support card */
+.support:has(.btn-support:hover) .heart-icon-wrapper i {
+    animation: heartbeat 0.6s infinite; /* Faster beat */
+}
+
+.support:has(.btn-support:hover) .heart-icon-wrapper::after {
+    animation: ripple 0.6s infinite;
+    border-width: 4px;
+}
+
+.btn-support {
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.btn-support:hover {
+    background: white;
+    border-color: var(--primary-red);
+    box-shadow: 0 20px 40px rgba(139, 0, 0, 0.15);
+}
+
+/* Tooltip-like effect: Add a text hint */
+.btn-support::before {
+    content: 'Clique para iniciar';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--text-dark);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.btn-support:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Individual card icon animations */
+.btn-support:hover i {
+    transform: scale(1.2) rotate(10deg);
+}
