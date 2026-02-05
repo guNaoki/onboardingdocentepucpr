@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "PUCPR Onboarding Docente",
   description: "Facilitando a jornada docente e promovendo a excelência acadêmica desde o primeiro dia.",
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.png?v=2",
   },
 };
 
