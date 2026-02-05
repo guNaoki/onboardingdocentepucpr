@@ -8,6 +8,7 @@ import { FaRegBell, FaBars, FaXmark } from 'react-icons/fa6';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { UserMenu } from './UserMenu';
+import { ThemeToggle } from '../ui/ThemeToggle';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,8 +77,10 @@ export default function Header() {
         </nav>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-4 z-50">
-          <FaRegBell className="text-gray-500 dark:text-gray-400 cursor-pointer hover:rotate-15 hover:text-puc-red transition-all duration-300" size={20} />
+        <div className="flex items-center gap-2 sm:gap-4 z-50">
+          <ThemeToggle />
+          
+          <FaRegBell className="hidden sm:block text-gray-500 dark:text-gray-400 cursor-pointer hover:rotate-15 hover:text-puc-red transition-all duration-300" size={20} />
           
           <UserMenu />
 

@@ -59,7 +59,7 @@ export function UserMenu() {
             </div>
 
             {/* Menu Items */}
-            <div className="p-2">
+            <div className="p-2 space-y-1">
               {menuItems.map((item, idx) => (
                 <button
                   key={idx}
@@ -69,27 +69,6 @@ export function UserMenu() {
                   {item.label}
                 </button>
               ))}
-
-              {/* Theme Toggle */}
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="w-full flex items-center justify-between px-3 py-2.5 text-sm text-text-dark dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors text-left mt-1"
-              >
-                <div className="flex items-center gap-3">
-                  {theme === "dark" ? <FaMoon className="text-indigo-400" /> : <FaSun className="text-amber-500" />}
-                  <span>{theme === "dark" ? "Modo Escuro" : "Modo Claro"}</span>
-                </div>
-                {/* Switch Visual */}
-                <div className={cn(
-                  "w-9 h-5 rounded-full relative transition-colors duration-300",
-                  theme === "dark" ? "bg-puc-red" : "bg-gray-300"
-                )}>
-                  <div className={cn(
-                    "absolute top-1 w-3 h-3 bg-white rounded-full shadow-sm transition-all duration-300",
-                    theme === "dark" ? "left-[calc(100%-16px)]" : "left-1"
-                  )} />
-                </div>
-              </button>
             </div>
 
             {/* Footer */}
