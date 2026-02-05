@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "PUCPR Onboarding Docente",
   description: "Facilitando a jornada docente e promovendo a excelência acadêmica desde o primeiro dia.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
