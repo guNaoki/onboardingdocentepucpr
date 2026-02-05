@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { FaRegBell, FaBars, FaXmark } from 'react-icons/fa6';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
+import { UserMenu } from './UserMenu';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,10 +37,10 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-border-color py-4 transition-all duration-300">
+    <header className="sticky top-0 z-50 bg-white/95 dark:bg-gray-950/95 backdrop-blur-md border-b border-border-color dark:border-gray-800 py-4 transition-all duration-300">
       <div className="container mx-auto px-5 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 font-bold text-lg text-text-dark hover:scale-105 transition-transform duration-300 z-50">
+        <Link href="/" className="flex items-center gap-2 font-bold text-lg text-text-dark dark:text-white hover:scale-105 transition-transform duration-300 z-50">
           <Image 
             src="/images/puc-pr-logo.png" 
             alt="PUCPR Logo" 
@@ -60,7 +61,7 @@ export default function Header() {
                   href={item.path}
                   className={cn(
                     "text-sm font-medium relative pb-1 transition-colors duration-300 group",
-                    pathname === item.path ? "text-puc-red" : "text-text-gray hover:text-puc-red"
+                    pathname === item.path ? "text-puc-red" : "text-text-gray dark:text-gray-400 hover:text-puc-red dark:hover:text-puc-red"
                   )}
                 >
                   {item.name}
@@ -76,21 +77,13 @@ export default function Header() {
 
         {/* Right Actions */}
         <div className="flex items-center gap-4 z-50">
-          <FaRegBell className="text-gray-500 cursor-pointer hover:rotate-15 hover:text-puc-red transition-all duration-300" size={20} />
+          <FaRegBell className="text-gray-500 dark:text-gray-400 cursor-pointer hover:rotate-15 hover:text-puc-red transition-all duration-300" size={20} />
           
-          <div className="w-[35px] h-[35px] rounded-full bg-gray-200 overflow-hidden cursor-pointer hover:scale-110 border-2 border-transparent hover:border-puc-red transition-all duration-300">
-            <Image 
-              src="/images/avatar-devfest.png" 
-              alt="User Avatar" 
-              width={35} 
-              height={35} 
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <UserMenu />
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-2xl text-text-dark focus:outline-none"
+            className="md:hidden text-2xl text-text-dark dark:text-white focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -107,7 +100,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-[73px] bg-white z-40 flex flex-col p-5 md:hidden"
+            className="fixed inset-0 top-[73px] bg-white dark:bg-gray-950 z-40 flex flex-col p-5 md:hidden"
           >
             <nav className="flex flex-col gap-6 mt-4">
               {navLinks.map((item, i) => (
@@ -120,8 +113,8 @@ export default function Header() {
                   <Link 
                     href={item.path}
                     className={cn(
-                      "text-2xl font-bold block py-2 border-b border-gray-100",
-                      pathname === item.path ? "text-puc-red" : "text-text-dark"
+                      "text-2xl font-bold block py-2 border-b border-gray-100 dark:border-gray-800",
+                      pathname === item.path ? "text-puc-red" : "text-text-dark dark:text-white"
                     )}
                   >
                     {item.name}

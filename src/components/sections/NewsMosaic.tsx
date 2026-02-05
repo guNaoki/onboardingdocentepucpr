@@ -5,19 +5,19 @@ import { FadeIn, StaggerContainer, StaggerItem } from '@/components/ui/MotionWra
 
 export default function NewsMosaic() {
   return (
-    <section className="bg-bg-light py-20" id="noticias">
+    <section className="bg-bg-light dark:bg-gray-950 py-20 transition-colors duration-300" id="noticias">
       <div className="container mx-auto px-5">
         <FadeIn className="mb-10 text-center sm:text-left flex justify-between items-end">
           <div>
             <Link href="/noticias">
-              <h2 className="text-3xl font-bold mb-2 inline-block relative group cursor-pointer hover:text-puc-red hover:translate-x-2 transition-all duration-300">
+              <h2 className="text-3xl font-bold mb-2 inline-block relative group cursor-pointer hover:text-puc-red dark:hover:text-rose-400 text-text-dark dark:text-white transition-all duration-300">
                 Institucional
                 <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-puc-red transition-all duration-300 group-hover:w-full"></span>
               </h2>
             </Link>
-            <p className="text-text-gray">Fique por dentro dos nossos valores e novidades</p>
+            <p className="text-text-gray dark:text-gray-400">Fique por dentro dos nossos valores e novidades</p>
           </div>
-          <Link href="/noticias" className="hidden md:inline-block text-sm font-bold text-puc-red hover:underline">
+          <Link href="/noticias" className="hidden md:inline-block text-sm font-bold text-puc-red dark:text-rose-400 hover:underline">
             Ver todas as notícias →
           </Link>
         </FadeIn>
@@ -26,7 +26,7 @@ export default function NewsMosaic() {
           {newsData.map((item, index) => (
             <StaggerItem 
               key={index} 
-              className={`group relative rounded-radius overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl
+              className={`group relative rounded-radius overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:shadow-none dark:border dark:border-gray-800
                 ${item.size === 'large' ? 'lg:col-span-2 lg:row-span-2 h-[300px] lg:h-full' : ''}
                 ${item.size === 'medium' ? 'lg:col-span-2 h-[250px] lg:h-full' : ''}
                 ${item.size === 'small' ? 'h-[250px] lg:h-full' : ''}
