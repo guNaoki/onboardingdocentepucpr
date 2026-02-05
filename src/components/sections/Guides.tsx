@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import GuideCard from '@/components/ui/GuideCard';
 import { guidesData } from '@/lib/data';
+import { FadeIn, StaggerContainer, StaggerItem } from '@/components/ui/MotionWrapper';
 
 export default function Guides() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -18,7 +19,7 @@ export default function Guides() {
 
   return (
     <section className="container mx-auto px-5 py-10" id="guias">
-      <div className="mb-8 flex justify-between items-end">
+      <FadeIn className="mb-8 flex justify-between items-end">
         <div>
           <Link href="/guias">
             <h2 className="text-3xl font-bold mb-2 inline-block relative group cursor-pointer hover:text-puc-red hover:translate-x-2 transition-all duration-300">
@@ -31,34 +32,37 @@ export default function Guides() {
         <Link href="/guias" className="hidden md:inline-block text-sm font-bold text-puc-red hover:underline">
           Ver todos →
         </Link>
-      </div>
+      </FadeIn>
 
       <div className="relative flex items-center gap-4">
         <button 
           onClick={() => scroll('left')}
-          className="w-11 h-11 flex-shrink-0 bg-white border border-border-color rounded-full flex items-center justify-center shadow-card hover:bg-puc-red hover:text-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
+          className="w-11 h-11 flex-shrink-0 bg-white border border-border-color rounded-full flex items-center justify-center shadow-card hover:bg-puc-red hover:text-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer hidden md:flex"
         >
           <FaChevronLeft />
         </button>
         
-        <div 
-          ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scrollbar-hide py-2 px-1 scroll-smooth"
+        <StaggerContainer 
+          className="flex gap-6 overflow-x-auto scrollbar-hide py-2 px-1 scroll-smooth w-full"
         >
-          {guidesData.map((guide, index) => (
-            <Link key={index} href={`/guias/${guide.id}`}>
-              <GuideCard 
-                title={guide.title} 
-                description={guide.description} 
-                Icon={guide.icon} 
-              />
-            </Link>
-          ))}
-        </div>
+          <div ref={scrollRef} className="flex gap-6 w-full">
+            {guidesData.map((guide, index) => (
+              <StaggerItem key={index} className="flex-shrink-0">
+                <Link href={`/guias/${guide.id}`}>
+                  <GuideCard 
+                    title={guide.title} 
+                    description={guide.description} 
+                    Icon={guide.icon} 
+                  />
+                </Link>
+              </StaggerItem>
+            ))}
+          </div>
+        </StaggerContainer>
 
         <button 
           onClick={() => scroll('right')}
-          className="w-11 h-11 flex-shrink-0 bg-white border border-border-color rounded-full flex items-center justify-center shadow-card hover:bg-puc-red hover:text-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
+          className="w-11 h-11 flex-shrink-0 bg-white border border-border-color rounded-full flex items-center justify-center shadow-card hover:bg-puc-red hover:text-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer hidden md:flex"
         >
           <FaChevronRight />
         </button>

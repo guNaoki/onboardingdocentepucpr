@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import DocumentFolder from '@/components/ui/DocumentFolder';
 import { documentsCategories } from '@/lib/data';
+import { FadeIn, StaggerContainer, StaggerItem } from '@/components/ui/MotionWrapper';
 
 export default function Documents() {
   return (
     <section className="container mx-auto px-5 py-10" id="documentos">
-      <div className="mb-8 flex justify-between items-end">
+      <FadeIn className="mb-8 flex justify-between items-end">
         <div>
           <Link href="/documentos">
             <h2 className="text-3xl font-bold mb-2 inline-block relative group cursor-pointer hover:text-puc-red hover:translate-x-2 transition-all duration-300">
@@ -18,15 +19,17 @@ export default function Documents() {
         <Link href="/documentos" className="hidden md:inline-block text-sm font-bold text-puc-red hover:underline">
           Acessar Central de Documentos →
         </Link>
-      </div>
+      </FadeIn>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+      <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
         {documentsCategories.map((doc, index) => (
-          <Link key={index} href="/documentos">
-            <DocumentFolder title={doc.title} filesCount={doc.count} />
-          </Link>
+          <StaggerItem key={index}>
+            <Link href="/documentos">
+              <DocumentFolder title={doc.title} filesCount={doc.count} />
+            </Link>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </section>
   );
 }
