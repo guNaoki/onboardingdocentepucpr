@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-@plugin "tailwindcss-animate";
+/* Define the dark variant for class-based dark mode in Tailwind 4 */
+@variant dark (&:where(.dark, .dark *));
 
 :root {
   --primary-red: #8B0000;
@@ -10,14 +11,19 @@
   --text-gray: #6B7280;
   --border-color: #E5E7EB;
   --radius: 12px;
+
+  /* Default theme colors */
+  color-scheme: light;
 }
 
+/* Explicitly handle the .dark class on html/root */
 .dark {
+  color-scheme: dark;
   --bg-light: #030712; /* gray-950 */
   --text-dark: #F9FAFB; /* gray-50 */
   --text-gray: #9CA3AF; /* gray-400 */
   --border-color: #1F2937; /* gray-800 */
-  --primary-red: #E11D48; /* rose-600 (lighter for dark mode) */
+  --primary-red: #E11D48; /* rose-600 */
   --primary-red-hover: #BE123C; /* rose-700 */
 }
 
@@ -43,7 +49,7 @@
   }
   
   * {
-    @apply border-border-color;
+    @apply border-border-color transition-colors duration-300;
   }
 }
 

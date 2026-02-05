@@ -10,16 +10,25 @@ export function ThemeToggle() {
   const [mounted, setMounted] = React.useState(false)
 
   // Avoid hydration mismatch
-  React.useEffect(() => setMounted(true), [])
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
-  if (!mounted) return <div className="w-10 h-10" />
+  if (!mounted) {
+    return <div className="w-10 h-10" />
+  }
+
+  const toggleTheme = () => {
+    const nextTheme = resolvedTheme === "dark" ? "light" : "dark"
+    setTheme(nextTheme)
+  }
 
   const isDark = resolvedTheme === "dark"
 
   return (
     <button
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-puc-red dark:hover:text-rose-400 transition-all active:scale-95 focus:outline-none"
+      onClick={toggleTheme}
+      className="relative w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-puc-red dark:hover:text-rose-400 transition-all active:scale-95 focus:outline-none z-50"
       aria-label="Alternar tema"
     >
       <AnimatePresence mode="wait">
