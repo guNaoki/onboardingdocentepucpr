@@ -21,17 +21,51 @@ export default function Header() {
 
         <nav className="hidden md:block">
           <ul className="flex gap-8 list-none">
-            {['Boas-vindas', 'Guias', 'Documentos', 'Notícias', 'Suporte'].map((item) => (
-              <li key={item}>
-                <Link 
-                  href={item === 'Boas-vindas' ? '#' : `#${item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
-                  className="text-sm font-medium text-text-gray relative pb-1 hover:text-puc-red group transition-colors duration-300"
-                >
-                  {item}
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-puc-red transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              </li>
-            ))}
+            <li>
+              <Link 
+                href="/"
+                className="text-sm font-medium text-text-gray relative pb-1 hover:text-puc-red group transition-colors duration-300"
+              >
+                Boas-vindas
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-puc-red transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/guias"
+                className="text-sm font-medium text-text-gray relative pb-1 hover:text-puc-red group transition-colors duration-300"
+              >
+                Guias
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-puc-red transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/documentos"
+                className="text-sm font-medium text-text-gray relative pb-1 hover:text-puc-red group transition-colors duration-300"
+              >
+                Documentos
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-puc-red transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/noticias"
+                className="text-sm font-medium text-text-gray relative pb-1 hover:text-puc-red group transition-colors duration-300"
+              >
+                Notícias
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-puc-red transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/suporte"
+                className="text-sm font-medium text-text-gray relative pb-1 hover:text-puc-red group transition-colors duration-300"
+              >
+                Suporte
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-puc-red transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
           </ul>
         </nav>
 

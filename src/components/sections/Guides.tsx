@@ -1,36 +1,10 @@
 'use client';
 
+import Link from 'next/link';
 import { useRef } from 'react';
-import { FaChevronLeft, FaChevronRight, FaPenToSquare, FaLaptopCode, FaFilePen, FaTableList, FaUsersViewfinder } from 'react-icons/fa6';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import GuideCard from '@/components/ui/GuideCard';
-
-const guides = [
-  {
-    title: "Criação do Plano de Ensino",
-    description: "Passo a passo para estruturar e submeter seu plano no sistema.",
-    Icon: FaPenToSquare
-  },
-  {
-    title: "Dominando o Canvas LMS",
-    description: "Configure sua sala de aula virtual e publique materiais.",
-    Icon: FaLaptopCode
-  },
-  {
-    title: "Aplicação de Provas",
-    description: "Regras, agendamento e ferramentas para avaliação segura.",
-    Icon: FaFilePen
-  },
-  {
-    title: "Portal do Professor",
-    description: "Como lançar frequências, notas e gerenciar diários.",
-    Icon: FaTableList
-  },
-  {
-    title: "Engajamento em Sala",
-    description: "Técnicas e ferramentas para aumentar a participação.",
-    Icon: FaUsersViewfinder
-  }
-];
+import { guidesData } from '@/lib/data';
 
 export default function Guides() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -44,12 +18,19 @@ export default function Guides() {
 
   return (
     <section className="container mx-auto px-5 py-10" id="guias">
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold mb-2 inline-block relative group cursor-default hover:text-puc-red hover:translate-x-2 transition-all duration-300">
-          Guias Rápidos
-          <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-puc-red transition-all duration-300 group-hover:w-full"></span>
-        </h2>
-        <p className="text-text-gray">Tutoriais essenciais para iniciar suas atividades</p>
+      <div className="mb-8 flex justify-between items-end">
+        <div>
+          <Link href="/guias">
+            <h2 className="text-3xl font-bold mb-2 inline-block relative group cursor-pointer hover:text-puc-red hover:translate-x-2 transition-all duration-300">
+              Guias Rápidos
+              <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-puc-red transition-all duration-300 group-hover:w-full"></span>
+            </h2>
+          </Link>
+          <p className="text-text-gray">Tutoriais essenciais para iniciar suas atividades</p>
+        </div>
+        <Link href="/guias" className="hidden md:inline-block text-sm font-bold text-puc-red hover:underline">
+          Ver todos →
+        </Link>
       </div>
 
       <div className="relative flex items-center gap-4">
@@ -64,8 +45,14 @@ export default function Guides() {
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto scrollbar-hide py-2 px-1 scroll-smooth"
         >
-          {guides.map((guide, index) => (
-            <GuideCard key={index} {...guide} />
+          {guidesData.map((guide, index) => (
+            <Link key={index} href={`/guias/${guide.id}`}>
+              <GuideCard 
+                title={guide.title} 
+                description={guide.description} 
+                Icon={guide.icon} 
+              />
+            </Link>
           ))}
         </div>
 

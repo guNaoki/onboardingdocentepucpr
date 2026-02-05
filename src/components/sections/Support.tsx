@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { FaHeart, FaUserTie, FaHandsHoldingCircle, FaHeadset } from 'react-icons/fa6';
 
 const supportActions = [
@@ -23,9 +24,9 @@ export default function Support() {
 
         <div className="flex flex-wrap justify-center gap-5">
           {supportActions.map((action, index) => (
-            <a 
+            <Link 
               key={index}
-              href="#" 
+              href="/suporte" 
               className="relative group flex flex-col items-center justify-center w-full sm:w-[180px] h-[140px] bg-white border border-border-color rounded-2xl transition-all duration-300 shadow-card hover:-translate-y-1 hover:shadow-hover hover:border-puc-red hover:bg-rose-50/50"
             >
               <action.icon className="text-3xl text-puc-red mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform" />
@@ -35,7 +36,7 @@ export default function Support() {
               <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-text-dark text-white px-3 py-1 rounded text-[0.7rem] opacity-0 group-hover:opacity-100 group-hover:translate-y-2 transition-all duration-300 pointer-events-none whitespace-nowrap">
                 Clique para iniciar
               </div>
-            </a>
+            </Link>
           ))}
         </div>
         <p className="text-[0.7rem] mt-8 text-gray-400">*Todas as conversas são confidenciais.</p>
