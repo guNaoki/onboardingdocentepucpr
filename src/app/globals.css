@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@plugin "tailwindcss-animate";
+
 :root {
   --primary-red: #8B0000;
   --primary-red-hover: #6B0000;
@@ -8,6 +10,15 @@
   --text-gray: #6B7280;
   --border-color: #E5E7EB;
   --radius: 12px;
+}
+
+.dark {
+  --bg-light: #030712; /* gray-950 */
+  --text-dark: #F9FAFB; /* gray-50 */
+  --text-gray: #9CA3AF; /* gray-400 */
+  --border-color: #1F2937; /* gray-800 */
+  --primary-red: #E11D48; /* rose-600 (lighter for dark mode) */
+  --primary-red-hover: #BE123C; /* rose-700 */
 }
 
 @theme {
@@ -27,13 +38,12 @@
 
 @layer base {
   body {
-    @apply bg-white text-text-dark font-sans antialiased;
+    @apply bg-bg-light text-text-dark font-sans antialiased transition-colors duration-300;
     scroll-behavior: smooth;
   }
   
-  /* Fallback for border color if needed */
   * {
-    border-color: var(--border-color);
+    @apply border-border-color;
   }
 }
 

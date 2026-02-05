@@ -6,27 +6,29 @@ import { FaSun, FaMoon } from "react-icons/fa6"
 import { motion, AnimatePresence } from "motion/react"
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
 
   // Avoid hydration mismatch
   React.useEffect(() => setMounted(true), [])
 
-  if (!mounted) return <div className="w-9 h-9" />
+  if (!mounted) return <div className="w-10 h-10" />
+
+  const isDark = resolvedTheme === "dark"
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="relative w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-puc-red dark:hover:text-rose-400 transition-colors focus:outline-none"
-      aria-label="Trocar tema"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="relative w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-puc-red dark:hover:text-rose-400 transition-all active:scale-95 focus:outline-none"
+      aria-label="Alternar tema"
     >
       <AnimatePresence mode="wait">
-        {theme === "dark" ? (
+        {isDark ? (
           <motion.div
             key="moon"
-            initial={{ scale: 0, rotate: -90 }}
-            animate={{ scale: 1, rotate: 0 }}
-            exit={{ scale: 0, rotate: 90 }}
+            initial={{ scale: 0, rotate: -45, opacity: 0 }}
+            animate={{ scale: 1, rotate: 0, opacity: 1 }}
+            exit={{ scale: 0, rotate: 45, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
             <FaMoon size={18} />
@@ -34,9 +36,9 @@ export function ThemeToggle() {
         ) : (
           <motion.div
             key="sun"
-            initial={{ scale: 0, rotate: -90 }}
-            animate={{ scale: 1, rotate: 0 }}
-            exit={{ scale: 0, rotate: 90 }}
+            initial={{ scale: 0, rotate: -45, opacity: 0 }}
+            animate={{ scale: 1, rotate: 0, opacity: 1 }}
+            exit={{ scale: 0, rotate: 45, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
             <FaSun size={18} />

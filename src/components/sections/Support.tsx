@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FaHeart, FaUserTie, FaHandsHoldingCircle, FaHeadset, FaShieldHeart } from 'react-icons/fa6';
+import { FaHeart, FaUserTie, FaHandsHoldingCircle, FaHeadset } from 'react-icons/fa6';
 import { FadeIn, Float, ScaleIn, StaggerContainer, StaggerItem } from '@/components/ui/MotionWrapper';
 import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
@@ -45,8 +45,8 @@ export default function Support() {
 
       <div className="container mx-auto px-5 relative z-10">
         <ScaleIn>
-          <div className="w-20 h-20 bg-white dark:bg-gray-900 shadow-xl rounded-2xl flex items-center justify-center mx-auto mb-8 rotate-3 border border-gray-100 dark:border-gray-800">
-            <FaShieldHeart className="text-puc-red text-4xl" />
+          <div className="w-20 h-20 bg-white dark:bg-gray-900 shadow-xl rounded-full flex items-center justify-center mx-auto mb-8 border border-gray-100 dark:border-gray-800">
+            <FaHeart className="text-[#be185d] text-4xl heartbeat" />
           </div>
         </ScaleIn>
         
