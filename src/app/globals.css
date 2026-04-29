@@ -4,13 +4,13 @@
 @variant dark (&:where(.dark, .dark *));
 
 :root {
-  --primary-red: #8B0000;
-  --primary-red-hover: #6B0000;
+  --primary-red: #B71C1C;
+  --primary-red-hover: #8B1414;
   --bg-light: #F9FAFB;
   --text-dark: #111827;
   --text-gray: #6B7280;
-  --border-color: #E5E7EB;
-  --radius: 12px;
+  --border-color: #F3F4F6;
+  --radius: 24px;
 
   /* Default theme colors */
   color-scheme: light;
@@ -19,12 +19,12 @@
 /* Explicitly handle the .dark class on html/root */
 .dark {
   color-scheme: dark;
-  --bg-light: #030712; /* gray-950 */
-  --text-dark: #F9FAFB; /* gray-50 */
-  --text-gray: #9CA3AF; /* gray-400 */
-  --border-color: #1F2937; /* gray-800 */
-  --primary-red: #E11D48; /* rose-600 */
-  --primary-red-hover: #BE123C; /* rose-700 */
+  --bg-light: #000000;
+  --text-dark: #F9FAFB;
+  --text-gray: #9CA3AF;
+  --border-color: #1F2937;
+  --primary-red: #B71C1C;
+  --primary-red-hover: #D32F2F;
 }
 
 @theme {

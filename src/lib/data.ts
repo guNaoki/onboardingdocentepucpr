@@ -1,103 +1,246 @@
-import { FaPenToSquare, FaLaptopCode, FaFilePen, FaTableList, FaUsersViewfinder, FaFolder, FaFilePdf, FaFileWord, FaFilePowerpoint } from 'react-icons/fa6';
+import { FaPenToSquare, FaLaptopCode, FaFilePen, FaTableList, FaUsersViewfinder, FaFolder, FaFilePdf, FaFileWord, FaFilePowerpoint, FaBell, FaCalendarCheck, FaCircleExclamation } from 'react-icons/fa6';
 
-// --- Guias ---
-export const guidesData = [
+// --- Links JIT (Just-In-Time) ---
+export const jitLinks = [
+  { id: 'magister', title: 'Magister', url: 'https://magister.pucpr.br', description: 'Diário de classe e notas', color: '#B71C1C', image: '/images/magister.png' },
+  { id: 'canvas', title: 'Canvas LMS', url: 'https://pucpr.instructure.com', description: 'Ambiente virtual de aprendizagem', color: '#E91E63', image: '/images/canvas.png' },
+];
+
+// --- Notificações Acionáveis ---
+export const notificationsData = [
   {
-    id: "plano-de-ensino",
-    title: "Criação do Plano de Ensino",
-    description: "Passo a passo para estruturar e submeter seu plano no sistema.",
-    fullContent: "O Plano de Ensino é o documento norteador da disciplina. Neste guia, você aprenderá a alinhar objetivos de aprendizagem com as competências do curso, definir cronogramas realistas e selecionar bibliografias atualizadas. O sistema acadêmico permite a importação de planos anteriores para facilitar o preenchimento.",
-    icon: FaPenToSquare
+    id: 1,
+    type: 'warning',
+    title: 'Plano de Ensino pendente',
+    message: 'O prazo para submissão do plano de Algoritmos encerra em 2 dias.',
+    actionLabel: 'Lançar Agora',
+    actionUrl: '/guias/plano-de-ensino',
+    icon: FaCircleExclamation
   },
   {
-    id: "canvas-lms",
-    title: "Dominando o Canvas LMS",
-    description: "Configure sua sala de aula virtual e publique materiais.",
-    fullContent: "O Canvas é o nosso Ambiente Virtual de Aprendizagem. Descubra como configurar módulos, criar tarefas, fóruns de discussão e questionários. Aprenda também a utilizar o SpeedGrader para correções ágeis e fornecer feedback multimídia aos alunos.",
+    id: 2,
+    type: 'info',
+    title: 'Treinamento Canvas',
+    message: 'Novo módulo de metodologias ativas disponível para sua área.',
+    actionLabel: 'Ver Módulo',
+    actionUrl: '/guias/canvas-lms',
     icon: FaLaptopCode
   },
   {
+    id: 3,
+    type: 'success',
+    title: 'Diário de Classe',
+    message: 'Suas frequências de ontem foram registradas com sucesso.',
+    actionLabel: 'Revisar',
+    actionUrl: 'https://magister.pucpr.br',
+    icon: FaCalendarCheck
+  }
+];
+
+export type GuideCategory = 'preparacao' | 'interacao' | 'avaliacao';
+export type GuidePriority = 'essencial' | 'recomendado' | 'avancado';
+
+export interface Guide {
+  id: string;
+  title: string;
+  description: string;
+  fullContent: string;
+  icon: any;
+  category: GuideCategory;
+  priority: GuidePriority;
+  duration: string;
+}
+
+// --- Guias (Refatorado para Jornada do Docente) ---
+export const guidesData: Guide[] = [
+  {
+    id: "plano-de-ensino",
+    category: "preparacao",
+    priority: "essencial",
+    duration: "5 min",
+    title: "Como Criar um Plano de Ensino Nota 10",
+    description: "Estruture sua disciplina com foco em competências e metodologias ativas.",
+    fullContent: "O Plano de Ensino é o documento norteador da disciplina. Neste guia, você aprenderá a alinhar objetivos de aprendizagem com as competências do curso, definir cronogramas realistas e selecionar bibliografias atualizadas.",
+    icon: FaPenToSquare
+  },
+  {
+    id: "configuracao-canvas",
+    category: "preparacao",
+    priority: "essencial",
+    duration: "4 min",
+    title: "Configurando sua Turma no Canvas",
+    description: "Passo a passo para importar conteúdos e organizar seus módulos iniciais.",
+    fullContent: "Antes do semestre começar, certifique-on de que sua sala virtual está pronta. Aprenda a importar o template padrão da PUCPR e organizar as semanas de aula.",
+    icon: FaLaptopCode
+  },
+  {
+    id: "canvas-lms",
+    category: "interacao",
+    priority: "recomendado",
+    duration: "Vídeo 6 min",
+    title: "Como Engajar Alunos no Canvas",
+    description: "Configure sua sala virtual para maximizar a interação e o aprendizado.",
+    fullContent: "O Canvas é o nosso Ambiente Virtual de Aprendizagem. Descubra como configurar módulos, criar tarefas, fóruns de discussão e questionários.",
+    icon: FaLaptopCode
+  },
+  {
+    id: "metodologias-ativas",
+    category: "interacao",
+    priority: "recomendado",
+    duration: "8 min",
+    title: "Aplicando Metodologias Ativas",
+    description: "Técnicas práticas para aumentar a participação e o foco dos estudantes.",
+    fullContent: "Explore metodologias ativas como Sala de Aula Invertida e Aprendizagem Baseada em Projetos (PBL).",
+    icon: FaUsersViewfinder
+  },
+  {
     id: "aplicacao-provas",
-    title: "Aplicação de Provas",
-    description: "Regras, agendamento e ferramentas para avaliação segura.",
-    fullContent: "As avaliações presenciais e online seguem protocolos rigorosos. Consulte as normas para agendamento de provas, uso de bloqueadores de navegador (LockDown Browser) e procedimentos para alunos com necessidades especiais.",
+    category: "avaliacao",
+    priority: "essencial",
+    duration: "5 min",
+    title: "Como Aplicar Avaliações com Segurança",
+    description: "Regras e ferramentas para garantir a integridade dos exames.",
+    fullContent: "As avaliações presenciais e online seguem protocolos rigorosos. Consulte as normas para agendamento de provas e uso de bloqueadores de navegador.",
     icon: FaFilePen
   },
   {
     id: "portal-professor",
-    title: "Portal do Professor",
-    description: "Como lançar frequências, notas e gerenciar diários.",
-    fullContent: "O Portal do Professor é sua ferramenta administrativa. Mantenha os diários de classe atualizados, lance frequências diariamente e garanta que as notas parciais sejam divulgadas dentro dos prazos estipulados pelo calendário acadêmico.",
+    category: "avaliacao",
+    priority: "essencial",
+    duration: "3 min",
+    title: "Lançamento de Notas e Frequências",
+    description: "Mantenha seus diários atualizados e evite retrabalho no final do semestre.",
+    fullContent: "O Portal do Professor é sua ferramenta administrativa. Mantenha os diários de classe atualizados, lance frequências diariamente e garanta que as notas parciais sejam divulgadas no prazo.",
     icon: FaTableList
   },
   {
-    id: "engajamento",
-    title: "Engajamento em Sala",
-    description: "Técnicas e ferramentas para aumentar a participação.",
-    fullContent: "Explore metodologias ativas como Sala de Aula Invertida e Aprendizagem Baseada em Projetos (PBL). Conheça ferramentas como Kahoot, Mentimeter e Padlet que estão disponíveis institucionalmente para dinamizar suas aulas.",
-    icon: FaUsersViewfinder
+    id: "feedback-alunos",
+    category: "interacao",
+    priority: "avancado",
+    duration: "5 min",
+    title: "Estratégias de Feedback Contínuo",
+    description: "Melhore a percepção de valor dos alunos com feedbacks ágeis e construtivos.",
+    fullContent: "O feedback é essencial para o aprendizado. Aprenda a utilizar o SpeedGrader do Canvas para dar retornos personalizados.",
+    icon: FaBell
   }
 ];
 
 // --- Documentos ---
 export const documentsCategories = [
   { id: "rh", title: "Contratos & RH", icon: FaFolder, count: 4 },
-  { id: "plano", title: "Plano de Ensino", icon: FaFolder, count: 2 },
-  { id: "politicas", title: "Políticas do Campus", icon: FaFolder, count: 8 },
-  { id: "provas", title: "Modelos de Prova", icon: FaFolder, count: 5 },
-  { id: "inclusao", title: "Guias de Inclusão", icon: FaFolder, count: 3 },
+  { id: "plano", title: "Modelos Pedagógicos", icon: FaFolder, count: 2 },
+  { id: "politicas", title: "Regulamentos e Normas", icon: FaFolder, count: 8 },
+  { id: "provas", title: "Avaliação e Provas", icon: FaFolder, count: 5 },
+  { id: "inclusao", title: "Inclusão e Diversidade", icon: FaFolder, count: 3 },
 ];
 
 export const allDocuments = [
-  { id: 1, name: "Manual do Colaborador.pdf", category: "rh", type: "pdf", size: "2.4 MB", date: "01/02/2026", icon: FaFilePdf },
-  { id: 2, name: "Calendário de Pagamentos 2026.pdf", category: "rh", type: "pdf", size: "1.1 MB", date: "15/01/2026", icon: FaFilePdf },
-  { id: 3, name: "Modelo de Plano de Ensino.docx", category: "plano", type: "word", size: "450 KB", date: "10/01/2026", icon: FaFileWord },
-  { id: 4, name: "Regulamento Disciplinar Discente.pdf", category: "politicas", type: "pdf", size: "3.2 MB", date: "20/01/2026", icon: FaFilePdf },
-  { id: 5, name: "Template de Prova Padrão A4.docx", category: "provas", type: "word", size: "120 KB", date: "05/02/2026", icon: FaFileWord },
-  { id: 6, name: "Diretrizes de Acessibilidade.pptx", category: "inclusao", type: "ppt", size: "5.6 MB", date: "28/01/2026", icon: FaFilePowerpoint },
-  // Adicione mais mock documents conforme necessário
+  { 
+    id: 1, 
+    name: "Manual do Colaborador 2026.pdf", 
+    category: "rh", 
+    type: "pdf", 
+    size: "2.4 MB", 
+    lastUpdated: "12/03/2026", 
+    sector: "Recursos Humanos",
+    icon: FaFilePdf 
+  },
+  { 
+    id: 2, 
+    name: "Calendário de Pagamentos 1º Semestre.pdf", 
+    category: "rh", 
+    type: "pdf", 
+    size: "1.1 MB", 
+    lastUpdated: "15/01/2026", 
+    sector: "Financeiro",
+    icon: FaFilePdf 
+  },
+  { 
+    id: 3, 
+    name: "Template de Plano de Ensino - Matriz 2026.docx", 
+    category: "plano", 
+    type: "word", 
+    size: "450 KB", 
+    lastUpdated: "10/02/2026", 
+    sector: "Diretoria Acadêmica",
+    icon: FaFileWord 
+  },
+  { 
+    id: 4, 
+    name: "Regulamento Disciplinar Atualizado.pdf", 
+    category: "politicas", 
+    type: "pdf", 
+    size: "3.2 MB", 
+    lastUpdated: "20/01/2026", 
+    sector: "Secretaria Acadêmica",
+    icon: FaFilePdf 
+  },
+  { 
+    id: 5, 
+    name: "Manual de Elaboração de Itens de Prova.pdf", 
+    category: "provas", 
+    type: "pdf", 
+    size: "1.5 MB", 
+    lastUpdated: "05/03/2026", 
+    sector: "CrEAre",
+    icon: FaFilePdf 
+  },
+  { 
+    id: 6, 
+    name: "Guia de Adaptação Curricular.pptx", 
+    category: "inclusao", 
+    type: "ppt", 
+    size: "5.6 MB", 
+    lastUpdated: "28/01/2026", 
+    sector: "Núcleo de Apoio Psicopedagógico",
+    icon: FaFilePowerpoint 
+  },
 ];
 
-// --- Notícias ---
+// --- Notícias e Eventos Acadêmicos ---
 export const newsData = [
   {
-    id: "inovacao-ensino",
-    title: "Inovação no Ensino",
-    description: "Novas metodologias ativas implementadas em todos os cursos de graduação.",
-    fullContent: "A PUCPR está liderando uma revolução pedagógica. A partir deste semestre, 100% dos cursos de graduação incorporarão pelo menos 30% de carga horária dedicada a metodologias ativas. Os docentes receberão treinamento especializado e suporte contínuo do CrEAre (Centro de Ensino e Aprendizagem).",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800",
-    date: "04 Fev 2026",
-    author: "Diretoria Acadêmica",
-    size: "large"
+    id: "submissao-projetos-pibic",
+    title: "Editais PIBIC 2026",
+    description: "Abertas as submissões para projetos de Iniciação Científica. Prazo final em 15 de Junho.",
+    fullContent: "O Programa Institucional de Bolsas de Iniciação Científica (PIBIC) está com inscrições abertas...",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800",
+    date: "10 Mai 2026",
+    author: "Diretoria de Pesquisa",
+    size: "large",
+    tag: "Prazo"
   },
   {
-    id: "responsabilidade-social",
-    title: "Responsabilidade Social",
-    description: "Projetos comunitários em alta.",
-    fullContent: "Nossos projetos de extensão alcançaram a marca histórica de 50 comunidades atendidas. Convidamos todos os novos docentes a submeterem propostas de intervenção social que alinhem o conhecimento técnico de suas áreas com as necessidades da população local.",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800",
-    date: "02 Fev 2026",
-    author: "Comunicação Institucional",
-    size: "small"
+    id: "congresso-docente",
+    title: "Congresso de Excelência Docente",
+    description: "Inscreva-se para compartilhar suas práticas pedagógicas inovadoras.",
+    fullContent: "O congresso anual de docentes da PUCPR busca celebrar as melhores práticas...",
+    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800",
+    date: "05 Mai 2026",
+    author: "CrEAre",
+    size: "small",
+    tag: "Evento"
   },
   {
-    id: "nossos-valores",
-    title: "Nossos Valores",
-    description: "Ética e excelência.",
-    fullContent: "A missão Marista é o coração da nossa universidade. Promovemos a excelência acadêmica não apenas técnica, mas humana. A ética, a solidariedade e o compromisso com a verdade são pilares que devem permear todas as relações em sala de aula.",
-    image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800",
-    date: "30 Jan 2026",
-    author: "Reitoria",
-    size: "small"
+    id: "plano-desenvolvimento",
+    title: "Plano de Desenvolvimento Docente",
+    description: "Ciclo de feedbacks do PDD inicia na próxima semana. Veja o cronograma.",
+    fullContent: "O PDD é fundamental para o crescimento contínuo de nossa comunidade acadêmica...",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800",
+    date: "02 Mai 2026",
+    author: "RH Acadêmico",
+    size: "small",
+    tag: "Aviso"
   },
   {
-    id: "vida-campus",
-    title: "Vida no Campus",
-    description: "Conheça os espaços de convivência e lazer disponíveis para docentes e alunos.",
-    fullContent: "O campus é um organismo vivo. Aproveite os novos espaços de coworking na biblioteca, a academia reformada no bloco de esportes e as áreas verdes de convivência. O bem-estar da nossa comunidade é prioridade.",
+    id: "festival-comunidade",
+    title: "Festival da Comunidade",
+    description: "Data confirmada para o evento de integração no campus Curitiba.",
+    fullContent: "Prepare-se para um dia de lazer, cultura e integração com seus colegas...",
     image: "/images/puc.png",
-    date: "25 Jan 2026",
-    author: "Gestão de Campus",
-    size: "medium"
+    date: "28 Abr 2026",
+    author: "Cultura e Esporte",
+    size: "medium",
+    tag: "Integração"
   }
 ];
