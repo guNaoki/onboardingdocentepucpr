@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
@@ -22,18 +22,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+      <body className={`${inter.className} min-h-screen flex flex-col md:flex-row bg-gray-50 dark:bg-black`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange
         >
-          <Header />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
+          <Sidebar />
+          <div className="flex-grow flex flex-col min-w-0">
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

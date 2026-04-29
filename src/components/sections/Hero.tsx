@@ -12,7 +12,7 @@ export default function Hero() {
           </FadeIn>
           
           <ScaleIn delay={0.2}>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 dark:text-white">
+            <h1 className="text-4xl md:text-5xl font-black leading-tight text-gray-900 dark:text-white">
               Aqui na PUCPR é<br />mais simples para você!
             </h1>
           </ScaleIn>

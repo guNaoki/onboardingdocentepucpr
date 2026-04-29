@@ -127,7 +127,7 @@ export default function DocumentsPage() {
                           <span className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded uppercase tracking-wide font-bold text-[0.6rem]">{doc.type}</span>
                           <span className="hidden sm:inline">{doc.size}</span>
                           <span className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700 hidden sm:inline"></span>
-                          <span className="hidden sm:inline">Atualizado em {doc.date}</span>
+                          <span className="hidden sm:inline">Atualizado em {doc.lastUpdated}</span>
                         </div>
                       </div>
 
