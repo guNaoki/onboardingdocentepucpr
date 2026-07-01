@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen flex flex-col md:flex-row bg-gray-50 dark:bg-black`}>
+      <body className={`${inter.className} min-h-screen flex flex-col md:flex-row relative`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

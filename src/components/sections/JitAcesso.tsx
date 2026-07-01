@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function JitAcesso() {
   return (
-    <div className="h-full flex flex-col justify-between p-6 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm">
+    <div className="h-full flex flex-col justify-between p-6 bg-white/45 dark:bg-gray-950/45 backdrop-blur-md rounded-3xl border border-white/20 dark:border-gray-800/30 shadow-sm">
       <div>
         <h3 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">Atalhos Úteis</h3>
         <p className="text-2xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
@@ -22,7 +22,7 @@ export default function JitAcesso() {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-between p-4 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-transparent hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-300"
+            className="group flex items-center justify-between p-4 rounded-2xl border border-gray-100/50 dark:border-gray-800/40 hover:border-transparent hover:bg-white/45 dark:hover:bg-gray-800/40 transition-all duration-300"
           >
             <div className="flex items-center gap-4">
               <div 

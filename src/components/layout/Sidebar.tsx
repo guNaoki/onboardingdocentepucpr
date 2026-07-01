@@ -29,6 +29,18 @@ export default function Sidebar() {
     setIsMobileOpen(false);
   }, [pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileOpen]);
+
   const navLinks = [
     { name: 'Boas-vindas', path: '/', icon: FaHouse },
     { name: 'Guias', path: '/guias', icon: FaBook },
@@ -63,15 +75,16 @@ export default function Sidebar() {
       <motion.aside
         initial={false}
         animate={{ width: isCollapsed ? '80px' : '280px' }}
+        transition={{ type: "spring", stiffness: 220, damping: 26 }}
         className={cn(
-          "hidden md:flex flex-col sticky top-0 h-screen bg-white dark:bg-gray-950 border-r border-border-color dark:border-gray-800 transition-all duration-300 z-50",
+          "hidden md:flex flex-col sticky top-4 h-[calc(100vh-2rem)] bg-white/45 dark:bg-black/35 backdrop-blur-lg border border-gray-200/40 dark:border-gray-800/50 rounded-[2.2rem] z-50 my-4 ml-4 shadow-sm",
           isCollapsed ? "items-center" : "items-start"
         )}
       >
         {/* Logo Section */}
         <div className={cn(
-          "w-full p-6 flex items-center transition-all duration-300",
-          isCollapsed ? "justify-center" : "justify-between"
+          "w-full flex items-center transition-all duration-300 border-b border-gray-200/10 dark:border-gray-800/20",
+          isCollapsed ? "p-3 justify-center" : "p-6 justify-between"
         )}>
           <Link href="/" className="flex items-center gap-3 font-bold text-text-dark dark:text-white overflow-hidden whitespace-nowrap">
             <Image 
@@ -96,56 +109,69 @@ export default function Sidebar() {
         {/* Navigation Links */}
         <nav className="flex-grow w-full px-3 mt-6">
           <ul className="space-y-2 list-none">
-            {navLinks.map((item) => (
-              <li key={item.name}>
-                <Link 
-                  href={item.path}
-                  className={cn(
-                    "flex items-center gap-4 p-3 rounded-xl transition-all duration-200 group relative",
-                    pathname === item.path 
-                      ? "bg-red-50 dark:bg-red-950/30 text-red-600" 
-                      : "text-text-gray dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-red-600"
-                  )}
-                >
-                  <item.icon className={cn(
-                    "text-xl min-w-[24px]",
-                    pathname === item.path ? "text-red-600" : "group-hover:text-red-600"
-                  )} />
-                  {!isCollapsed && (
-                    <motion.span 
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="font-medium whitespace-nowrap"
-                    >
-                      {item.name}
-                    </motion.span>
-                  )}
-                  {isCollapsed && (
-                    <div className="absolute left-full ml-6 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 shadow-xl">
-                      {item.name}
-                    </div>
-                  )}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((item) => {
+              const isActive = pathname === item.path;
+              return (
+                <li key={item.name}>
+                  <Link 
+                    href={item.path}
+                    className={cn(
+                      "flex items-center gap-4 p-3 rounded-xl transition-all duration-200 group relative z-10",
+                      isActive 
+                        ? "text-[#B71C1C]" 
+                        : "text-text-gray dark:text-gray-400 hover:text-[#B71C1C]"
+                    )}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeSidebarTab"
+                        className="absolute inset-0 bg-red-50/60 dark:bg-red-950/20 rounded-xl -z-10"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    <item.icon className={cn(
+                      "text-xl min-w-[24px] z-20",
+                      isActive ? "text-[#B71C1C]" : "group-hover:text-[#B71C1C]"
+                    )} />
+                    {!isCollapsed && (
+                      <motion.span 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="font-semibold whitespace-nowrap z-20"
+                      >
+                        {item.name}
+                      </motion.span>
+                    )}
+                    {isCollapsed && (
+                      <div className="absolute left-full ml-6 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 shadow-xl">
+                        {item.name}
+                      </div>
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
         {/* Bottom Actions */}
         <div className={cn(
-          "w-full p-6 mt-auto border-t border-border-color dark:border-gray-800 flex flex-col gap-4",
-          isCollapsed ? "items-center" : "items-start"
+          "w-full mt-auto border-t border-gray-200/20 dark:border-gray-800/30 flex flex-col gap-4",
+          isCollapsed ? "p-3 items-center" : "p-6 items-start"
         )}>
-          <div className="flex items-center gap-4">
+          <div className={cn("flex items-center w-full", isCollapsed ? "justify-center" : "gap-4")}>
             <ThemeToggle />
             {!isCollapsed && <span className="text-sm font-medium text-text-gray dark:text-gray-400">Tema</span>}
           </div>
           
           <button 
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-900 text-text-gray dark:text-gray-400 transition-all w-full"
+            className={cn(
+              "flex items-center rounded-lg hover:bg-gray-50/50 dark:hover:bg-gray-900/40 text-text-gray dark:text-gray-400 transition-all w-full p-2.5",
+              isCollapsed ? "justify-center" : "gap-4"
+            )}
           >
-            {isCollapsed ? <FaChevronRight /> : <FaChevronLeft />}
+            {isCollapsed ? <FaChevronRight className="text-lg" /> : <FaChevronLeft className="text-lg" />}
             {!isCollapsed && <span className="text-sm font-medium">Recolher</span>}
           </button>
         </div>
@@ -197,7 +223,7 @@ export default function Sidebar() {
                         className={cn(
                           "flex items-center gap-4 p-4 rounded-2xl font-bold transition-all",
                           pathname === item.path 
-                            ? "bg-red-50 dark:bg-red-950/30 text-red-600" 
+                            ? "bg-red-50 dark:bg-red-950/30 text-[#B71C1C]" 
                             : "text-text-dark dark:text-white"
                         )}
                       >

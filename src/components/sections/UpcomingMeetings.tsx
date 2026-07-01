@@ -33,7 +33,7 @@ const meetings = [
 
 export default function UpcomingMeetings() {
   return (
-    <section className="bg-white dark:bg-gray-900 rounded-[2.5rem] p-8 md:p-10 border border-gray-100 dark:border-gray-800 shadow-sm">
+    <section className="bg-white/45 dark:bg-gray-950/40 backdrop-blur-md rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 border border-white/20 dark:border-gray-800/30 shadow-sm">
       <div className="flex items-center gap-3 mb-8">
         <div className="w-12 h-12 rounded-2xl bg-red-50 dark:bg-red-950/30 flex items-center justify-center text-red-600">
           <FaCalendarPlus className="text-2xl" />

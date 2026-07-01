@@ -14,7 +14,7 @@ export default function Documents() {
     : allDocuments.filter(doc => doc.category === activeCategory);
 
   return (
-    <section className="p-8 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm" id="documentos">
+    <section className="p-6 md:p-8 bg-white/45 dark:bg-gray-950/40 backdrop-blur-md rounded-3xl border border-white/20 dark:border-gray-800/30 shadow-sm" id="documentos">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">Documentos e Modelos</h2>
@@ -32,7 +32,7 @@ export default function Documents() {
           className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${
             activeCategory === 'all' 
               ? 'bg-[#B71C1C] text-white border-[#B71C1C]' 
-              : 'bg-gray-50 dark:bg-gray-800 text-gray-500 border-gray-100 dark:border-gray-700 hover:bg-gray-100'
+              : 'bg-white/40 dark:bg-gray-800/35 text-gray-500 border-gray-100/50 dark:border-gray-700/40 hover:bg-white/70'
           }`}
         >
           Todos
@@ -44,7 +44,7 @@ export default function Documents() {
             className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${
               activeCategory === cat.id 
                 ? 'bg-[#B71C1C] text-white border-[#B71C1C]' 
-                : 'bg-gray-50 dark:bg-gray-800 text-gray-500 border-gray-100 dark:border-gray-700 hover:bg-gray-100'
+                : 'bg-white/40 dark:bg-gray-800/35 text-gray-500 border-gray-100/50 dark:border-gray-700/40 hover:bg-white/70'
             }`}
           >
             {cat.title}
@@ -54,7 +54,7 @@ export default function Documents() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredDocuments.map((doc, index) => (
-          <div key={doc.id} className="p-4 bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 rounded-2xl hover:bg-white dark:hover:bg-gray-800 transition-all duration-300 group">
+          <div key={doc.id} className="p-4 bg-white/40 dark:bg-gray-800/20 border border-gray-100/50 dark:border-gray-700/40 rounded-2xl hover:bg-white/70 dark:hover:bg-gray-800/50 transition-all duration-300 group">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-10 h-10 rounded-xl bg-white dark:bg-gray-700 flex items-center justify-center text-gray-400 group-hover:text-[#B71C1C] shadow-sm transition-colors">
                 <doc.icon className="text-xl" />

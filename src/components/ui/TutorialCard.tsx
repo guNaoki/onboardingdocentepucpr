@@ -20,10 +20,10 @@ export default function TutorialCard({ guide, isHighPriority = false }: Tutorial
   return (
     <Link href={`/guias/${guide.id}`}>
       <div className={cn(
-        "group h-full flex flex-col p-6 rounded-3xl transition-all duration-300 border shadow-sm hover:shadow-xl hover:-translate-y-1 bg-white dark:bg-gray-900",
+        "group h-full flex flex-col p-6 rounded-3xl transition-all duration-300 border shadow-sm hover:shadow-xl hover:-translate-y-1 bg-white/45 dark:bg-gray-900/45 backdrop-blur-sm",
         isHighPriority 
           ? "border-red-200 dark:border-red-900/50 ring-1 ring-red-50 dark:ring-0" 
-          : "border-gray-100 dark:border-gray-800 hover:border-red-200 dark:hover:border-red-900"
+          : "border-gray-100/50 dark:border-gray-800/40 hover:border-red-200 dark:hover:border-red-900"
       )}>
         <div className="flex justify-between items-start mb-6">
           <div className={cn(

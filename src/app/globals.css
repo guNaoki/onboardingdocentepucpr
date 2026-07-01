@@ -46,6 +46,13 @@
   body {
     @apply bg-bg-light text-text-dark font-sans antialiased transition-colors duration-300;
     scroll-behavior: smooth;
+    background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    background-attachment: fixed;
+  }
+  
+  .dark body {
+    background-image: radial-gradient(#1f2937 1.5px, transparent 1.5px) !important;
   }
   
   * {

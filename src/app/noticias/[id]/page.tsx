@@ -41,7 +41,7 @@ export default async function NewsDetailPage({
       </div>
 
       <div className="container mx-auto px-5 py-12 -mt-10 relative z-10">
-        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl max-w-4xl mx-auto prose prose-lg prose-red">
+        <div className="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 rounded-2xl p-8 md:p-12 shadow-xl max-w-4xl mx-auto prose prose-lg prose-red dark:prose-invert transition-colors duration-300">
           <p className="lead font-medium text-xl text-text-gray mb-8 border-l-4 border-puc-red pl-4">
             {news.description}
           </p>

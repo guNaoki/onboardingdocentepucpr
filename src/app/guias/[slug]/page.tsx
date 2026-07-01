@@ -22,36 +22,36 @@ export default async function GuideDetailPage({
         <FaArrowLeft /> Voltar para Guias
       </Link>
 
-      <article className="bg-white border border-border-color rounded-2xl p-8 md:p-12 shadow-sm">
-        <header className="mb-10 pb-8 border-b border-gray-100">
+      <article className="bg-white dark:bg-gray-900 border border-border-color dark:border-gray-800 rounded-2xl p-8 md:p-12 shadow-sm text-text-dark dark:text-white transition-colors duration-300">
+        <header className="mb-10 pb-8 border-b border-gray-100 dark:border-gray-800">
           <div className="flex items-center gap-4 mb-6">
-            <div className="bg-rose-100 p-3 rounded-lg">
-              <guide.icon className="text-puc-red text-3xl" />
+            <div className="bg-rose-100 dark:bg-rose-950/40 p-3 rounded-lg">
+              <guide.icon className="text-puc-red dark:text-rose-400 text-3xl" />
             </div>
-            <span className="text-sm font-bold text-puc-red bg-rose-50 px-3 py-1 rounded-full uppercase tracking-wider">
+            <span className="text-sm font-bold text-puc-red dark:text-rose-400 bg-rose-50 dark:bg-rose-900/20 px-3 py-1 rounded-full uppercase tracking-wider">
               Tutorial
             </span>
           </div>
           
-          <h1 className="text-3xl md:text-5xl font-bold mb-6 text-text-dark leading-tight">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6 text-text-dark dark:text-white leading-tight">
             {guide.title}
           </h1>
           
-          <p className="text-xl text-text-gray leading-relaxed">
+          <p className="text-xl text-text-gray dark:text-gray-400 leading-relaxed">
             {guide.description}
           </p>
 
           <div className="flex gap-4 mt-8">
-            <button className="flex items-center gap-2 text-sm font-semibold text-text-gray hover:text-puc-red transition-colors">
+            <button className="flex items-center gap-2 text-sm font-semibold text-text-gray dark:text-gray-400 hover:text-puc-red dark:hover:text-rose-400 transition-colors">
               <FaPrint /> Imprimir
             </button>
-            <button className="flex items-center gap-2 text-sm font-semibold text-text-gray hover:text-puc-red transition-colors">
+            <button className="flex items-center gap-2 text-sm font-semibold text-text-gray dark:text-gray-400 hover:text-puc-red dark:hover:text-rose-400 transition-colors">
               <FaShareNodes /> Compartilhar
             </button>
           </div>
         </header>
 
-        <div className="prose prose-lg max-w-none text-text-dark">
+        <div className="prose prose-lg dark:prose-invert max-w-none text-text-dark dark:text-gray-200">
           <p className="lead">{guide.fullContent}</p>
           
           {/* Placeholder for real content structure */}

@@ -35,12 +35,12 @@ export default function Guides() {
           Prevents vertical fatigue and allows the user to see "peek" of the next card, 
           indicating interactivity (Signifiers).
       */}
-      <div className="relative -mx-6 px-6 md:mx-0 md:px-0">
+      <div className="relative -mx-5 px-5 md:mx-0 md:px-0">
         <div className="flex md:grid md:grid-cols-3 gap-5 overflow-x-auto md:overflow-x-visible pb-8 md:pb-0 no-scrollbar snap-x snap-mandatory scroll-smooth">
           {essentialGuides.map((guide) => (
             <div 
               key={guide.id} 
-              className="min-w-[85%] sm:min-w-[45%] md:min-w-full snap-center first:pl-0 last:pr-6 md:last:pr-0"
+              className="min-w-[85%] sm:min-w-[45%] md:min-w-full snap-center"
             >
               <TutorialCard guide={guide} />
             </div>
