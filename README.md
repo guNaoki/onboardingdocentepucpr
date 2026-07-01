@@ -40,23 +40,17 @@ Certifique-se de ter o [Bun](https://bun.sh/) ou o [Node.js](https://nodejs.org/
 1. Instale as dependências:
    ```bash
    bun install
-   # ou
-   npm install
    ```
 
 2. Inicie o servidor de desenvolvimento:
    ```bash
    bun dev
-   # ou
-   npm run dev
+
    ```
 
 3. Para gerar a versão de produção e testar localmente:
    ```bash
    bun run build && bun start
-   # ou
-   npm run build && npm start
-   ```
 
 ## 🚀 Implantação (Deployment)
 
