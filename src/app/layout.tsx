@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/layout/Sidebar";
+import TopBar from "@/components/layout/TopBar";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import SearchModal from "@/components/ui/SearchModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,11 +33,13 @@ export default function RootLayout({
         >
           <Sidebar />
           <div className="flex-grow flex flex-col min-w-0">
+            <TopBar />
             <main className="flex-grow">
               {children}
             </main>
             <Footer />
           </div>
+          <SearchModal />
         </ThemeProvider>
       </body>
     </html>

@@ -13,7 +13,8 @@ import {
   FaNewspaper, 
   FaCircleQuestion,
   FaChevronLeft,
-  FaChevronRight
+  FaChevronRight,
+  FaMagnifyingGlass
 } from 'react-icons/fa6';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
@@ -63,12 +64,22 @@ export default function Sidebar() {
           />
           <span>Onboarding</span>
         </Link>
-        <button 
-          onClick={() => setIsMobileOpen(!isMobileOpen)}
-          className="text-2xl text-text-dark dark:text-white"
-        >
-          {isMobileOpen ? <FaXmark /> : <FaBars />}
-        </button>
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={() => window.dispatchEvent(new CustomEvent('open-search'))}
+            className="text-xl text-text-dark dark:text-white hover:text-[#B71C1C] dark:hover:text-rose-400 transition-colors p-1.5 focus:outline-none"
+            aria-label="Pesquisar"
+          >
+            <FaMagnifyingGlass />
+          </button>
+          <button 
+            onClick={() => setIsMobileOpen(!isMobileOpen)}
+            className="text-2xl text-text-dark dark:text-white focus:outline-none"
+            aria-label="Menu"
+          >
+            {isMobileOpen ? <FaXmark /> : <FaBars />}
+          </button>
+        </div>
       </header>
 
       {/* Desktop Sidebar */}
